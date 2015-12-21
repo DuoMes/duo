@@ -6,4 +6,9 @@
 
 ## Requisiti
 
+-- da definirsi
+
 ## Installazione
+
+
+-- da definirsi
