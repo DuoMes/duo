@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.SignalR;
+﻿using Duo.Notifications;
+using Microsoft.AspNet.SignalR;
 using Radical.CQRS.Server;
 using System;
 
@@ -18,9 +19,10 @@ namespace Duo.Server.Push.Interceptors
 			var context = this.operationContextManager.GetCurrent();
 
 			var ctx = GlobalHost.ConnectionManager.GetHubContext<ClientNotificastionsHub>();
-			ctx.Clients.All.OnCommandFailed( rawCommand.GetType().Name + "Failed", new FailureNotification()
+			ctx.Clients.All.OnCommandFailed( new FailureNotification()
 			{
-				Error = exception,
+                Command = rawCommand.GetType(),
+                Error = exception,
 				CorrelationId = context.CorrelationId
 			} );
 		}
@@ -35,8 +37,9 @@ namespace Duo.Server.Push.Interceptors
 			var context = this.operationContextManager.GetCurrent();
 
 			var ctx = GlobalHost.ConnectionManager.GetHubContext<ClientNotificastionsHub>();
-			ctx.Clients.All.OnCommandExecuted( rawCommand.GetType().Name + "Executed", new SuccessNotification()
+			ctx.Clients.All.OnCommandExecuted( new SuccessNotification()
 			{
+                Command = rawCommand.GetType(),
 				Result = rawResult,
 				CorrelationId = context.CorrelationId
 			} );

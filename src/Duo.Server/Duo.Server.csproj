@@ -193,13 +193,17 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Push\ClientNotificastionsHub.cs" />
-    <Compile Include="Push\Notifications.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Duo.Notifications\Duo.Notifications.csproj">
+      <Project>{dccae445-55bd-4123-a526-7bc9c9643830}</Project>
+      <Name>Duo.Notifications</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
