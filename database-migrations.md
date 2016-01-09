@@ -3,3 +3,5 @@ Il progetto utilizza le database migration di `Entity Framework`. Per allineare 
 ```
 Update-Database -StartUpProjectName "Duo.Migrations" -ProjectName "Duo.Migrations" -Verbose
 ``` 
+
+Guida molto ben fatta all'uso delle `DbMigration`: https://coding.abel.nu/2012/03/ef-migrations-command-reference/
