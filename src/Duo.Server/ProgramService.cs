@@ -5,6 +5,7 @@ using System.Configuration;
 using Owin;
 using Microsoft.Owin.Cors;
 using System.ServiceProcess;
+using Topics.Radical;
 
 namespace Duo.Server
 {
@@ -50,6 +51,11 @@ namespace Duo.Server
                 baseAddress,
                 bootstrapper.ProbeDirectory,
                 windsor);
+
+            this._server.AddJasonWebAPIEndpointCustomization(endpoint => 
+            {
+                endpoint.IsCommandConvention = t => t.Namespace != null && t.Namespace.EndsWith(".Commands");
+            });
 
             //AddODataSupport(this._server);
             AddSignalRSupport(this._server);
