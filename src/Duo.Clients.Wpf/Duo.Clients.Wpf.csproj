@@ -118,6 +118,7 @@
     <Compile Include="Messaging\CommandFailed.cs" />
     <Compile Include="Presentation\MainViewModel.cs" />
     <Compile Include="Services\AppSettings.cs" />
+    <Compile Include="Services\BobineMadriViewsService.cs" />
     <Compile Include="Services\ServerNotificationsConnector.cs" />
   </ItemGroup>
   <ItemGroup>
