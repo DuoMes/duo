@@ -26,6 +26,7 @@ namespace Duo.Domain.BobineMadri
                     Lunghezza = lunghezza
                 };
                 var aggregato = new BobinaMadre(stato);
+                aggregato.SetupCompleted();
                 return aggregato;
             }
         }
@@ -35,7 +36,15 @@ namespace Duo.Domain.BobineMadri
         {                        
         }
 
-
+        private void SetupCompleted()
+        {
+            this.RaiseEvent<IBobinaMadreCreata>(e =>
+            {
+                e.Codice = this.Data.Codice;
+                e.Lunghezza = this.Data.Lunghezza;
+                e.Fascia = this.Data.Fascia;
+            });
+        }
 
     }
 }
