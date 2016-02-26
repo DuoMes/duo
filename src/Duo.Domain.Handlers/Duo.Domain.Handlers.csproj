@@ -81,6 +81,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Duo.Domain\Duo.Domain.csproj">
+      <Project>{4a1472ca-35a9-4767-a940-43e485d8b241}</Project>
+      <Name>Duo.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Duo.Messages\Duo.Messages.csproj">
       <Project>{8c246823-506e-4f24-8792-dab335a637c5}</Project>
       <Name>Duo.Messages</Name>

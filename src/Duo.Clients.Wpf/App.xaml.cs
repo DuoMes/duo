@@ -37,16 +37,7 @@ namespace Duo.Clients.Wpf
                 var baseAddress = ConfigurationManager.AppSettings["jason/baseAddress"];
                 var client = new Radical.CQRS.Client.CommandClient(baseAddress);
                 var cid = Guid.NewGuid().ToString();
-                try
-                {
-                    var result = await client.ExecuteAsync<object>(cid, cmd);
-                }
-                catch (Exception ex)
-                {
-
-                    throw;
-                }
-
+                var result = await client.ExecuteAsync<Guid>(cid, cmd);
             });
         }
     }
