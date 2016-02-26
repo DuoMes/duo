@@ -8,9 +8,9 @@ namespace Duo.Domain.ViewModels.BobineMadri
 {
     public class BobinaMadreView
     {
-        public Guid Id { get; private set; }
-        public string Codice { get; private set; }
-        public int Lunghezza { get; private set; }
-        public int Fascia { get; private set; }
+        public Guid Id { get;  set; }
+        public string Codice { get;  set; }
+        public int Lunghezza { get;  set; }
+        public int Fascia { get;  set; }
     }
 }
