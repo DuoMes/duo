@@ -186,7 +186,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\SamplesController.cs" />
+    <Compile Include="Controllers\BobineMadriController.cs" />
+    <Compile Include="Data\BobineMadriViewDataContext.cs" />
     <Compile Include="Interceptors\PushToSignalRCommandInterceptor.cs" />
     <Compile Include="ProgramService.cs">
       <SubType>Component</SubType>
@@ -206,6 +207,10 @@
     <ProjectReference Include="..\Duo.Domain.Handlers\Duo.Domain.Handlers.csproj">
       <Project>{9ed16d2a-b3d0-42b7-87c7-062600e98d7b}</Project>
       <Name>Duo.Domain.Handlers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Duo.Domain.ViewModels\Duo.Domain.ViewModels.csproj">
+      <Project>{41d31b96-695a-4fb7-b398-5fe611c2c14d}</Project>
+      <Name>Duo.Domain.ViewModels</Name>
     </ProjectReference>
     <ProjectReference Include="..\Duo.Domain\Duo.Domain.csproj">
       <Project>{4a1472ca-35a9-4767-a940-43e485d8b241}</Project>

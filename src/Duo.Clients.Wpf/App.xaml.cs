@@ -38,7 +38,13 @@ namespace Duo.Clients.Wpf
                 var client = new Radical.CQRS.Client.CommandClient(baseAddress);
                 var cid = Guid.NewGuid().ToString();
                 var result = await client.ExecuteAsync<Guid>(cid, cmd);
+
+
+
+
             });
+
+
         }
     }
 }

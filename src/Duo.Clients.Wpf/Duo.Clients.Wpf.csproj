@@ -158,6 +158,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Duo.Domain.ViewModels\Duo.Domain.ViewModels.csproj">
+      <Project>{41d31b96-695a-4fb7-b398-5fe611c2c14d}</Project>
+      <Name>Duo.Domain.ViewModels</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Duo.Messages\Duo.Messages.csproj">
       <Project>{8c246823-506e-4f24-8792-dab335a637c5}</Project>
       <Name>Duo.Messages</Name>
