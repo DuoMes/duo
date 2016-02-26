@@ -79,7 +79,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DbContextFactory.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Duo.Domain\Duo.Domain.csproj">
+      <Project>{4a1472ca-35a9-4767-a940-43e485d8b241}</Project>
+      <Name>Duo.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
