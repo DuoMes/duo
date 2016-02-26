@@ -69,6 +69,10 @@
     <Compile Include="Migrations\201601091403296_Initial.Designer.cs">
       <DependentUpon>201601091403296_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201602261001164_BobineMadri.cs" />
+    <Compile Include="Migrations\201602261001164_BobineMadri.Designer.cs">
+      <DependentUpon>201602261001164_BobineMadri.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -89,6 +93,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201601091403296_Initial.resx">
       <DependentUpon>201601091403296_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602261001164_BobineMadri.resx">
+      <DependentUpon>201602261001164_BobineMadri.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

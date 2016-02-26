@@ -199,6 +199,22 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Duo.Domain.Data\Duo.Domain.Data.csproj">
+      <Project>{bd952cce-ef90-4af1-a113-90fd5e0b3450}</Project>
+      <Name>Duo.Domain.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Duo.Domain.Handlers\Duo.Domain.Handlers.csproj">
+      <Project>{9ed16d2a-b3d0-42b7-87c7-062600e98d7b}</Project>
+      <Name>Duo.Domain.Handlers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Duo.Domain\Duo.Domain.csproj">
+      <Project>{4a1472ca-35a9-4767-a940-43e485d8b241}</Project>
+      <Name>Duo.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Duo.Messages\Duo.Messages.csproj">
+      <Project>{8c246823-506e-4f24-8792-dab335a637c5}</Project>
+      <Name>Duo.Messages</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Duo.Notifications\Duo.Notifications.csproj">
       <Project>{dccae445-55bd-4123-a526-7bc9c9643830}</Project>
       <Name>Duo.Notifications</Name>

@@ -1,4 +1,10 @@
-﻿using System.Net;
+﻿using Newtonsoft.Json;
+using System;
+using System.Configuration;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
 using System.Windows;
 using Topics.Radical.Windows.Presentation.Boot;
 
@@ -15,27 +21,33 @@ namespace Duo.Clients.Wpf
             var boostrapper = new WindsorApplicationBootstrapper<Presentation.MainView>();
         }
 
-        //protected override void OnStartup(StartupEventArgs e)
-        //{
-        //    base.OnStartup(e);
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
 
-        //    //Task.Run(async () => 
-        //    //{
-        //    //    var f = new Foo { Text = "Hi, there!" };
+            Task.Run(async () =>
+            {
+                var cmd = new Duo.Messages.BobineMadri.Commands.CreaNuovaBobinaMadre()
+                {
+                    Codice = "12345",
+                    Fascia = 8200,
+                    Lunghezza = 22000
+                };
 
-        //    //    var baseAddress = ConfigurationManager.AppSettings[ "api/baseAddress" ];
+                var baseAddress = ConfigurationManager.AppSettings["jason/baseAddress"];
+                var client = new Radical.CQRS.Client.CommandClient(baseAddress);
+                var cid = Guid.NewGuid().ToString();
+                try
+                {
+                    var result = await client.ExecuteAsync<object>(cid, cmd);
+                }
+                catch (Exception ex)
+                {
 
-        //    //    HttpClient client = new HttpClient();
-        //    //    var content = new StringContent(JsonConvert.SerializeObject(f));
-        //    //    content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                    throw;
+                }
 
-        //    //    var url = baseAddress + "api/samples/echo";
-
-        //    //    var response = await client.PostAsync(url, content);
-        //    //    var result = await response.Content.ReadAsStringAsync();
-
-        //    //    var x = result;
-        //    //});
-        //}
+            });
+        }
     }
 }
