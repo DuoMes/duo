@@ -1,11 +1,7 @@
 ﻿using Microsoft.AspNet.SignalR.Client;
+using Polly;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net.Http;
 using Topics.Radical.ComponentModel.Messaging;
 using Topics.Radical.Windows.Presentation.Boot;
 
@@ -27,18 +23,23 @@ namespace Duo.Clients.Wpf.Services
         public async void OnBootCompleted()
         {
             this.hubConnection = new HubConnection(this.settings.SignalRBaseAddress);
-            var clientNotificastionsHubProxy = hubConnection.CreateHubProxy( "ClientNotificastionsHub" );
-            clientNotificastionsHubProxy.On<Duo.Notifications.SuccessNotification>("OnCommandExecuted", async msg =>
+            var clientNotificastionsHubProxy = hubConnection.CreateHubProxy("ClientNotificastionsHub");
+            clientNotificastionsHubProxy.On<Notifications.SuccessNotification>("OnCommandExecuted", async msg =>
             {
                 await this.broker.BroadcastAsync(this, new Messaging.CommandExecuted() { Notification = msg });
-            } );
+            });
 
-            clientNotificastionsHubProxy.On<Duo.Notifications.FailureNotification>("OnCommandFailed", async msg =>
+            clientNotificastionsHubProxy.On<Notifications.FailureNotification>("OnCommandFailed", async msg =>
             {
                 await this.broker.BroadcastAsync(this, new Messaging.CommandFailed() { Notification = msg });
             });
 
-            await this.hubConnection.Start();
+            await Policy.Handle<HttpRequestException>()
+                .WaitAndRetryAsync(3, retryAttempt => TimeSpan.FromSeconds(1))
+                .ExecuteAsync(async () =>
+                {
+                    await this.hubConnection.Start();
+                });
         }
 
         public void Dispose()
