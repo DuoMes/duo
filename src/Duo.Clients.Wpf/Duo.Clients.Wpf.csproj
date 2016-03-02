@@ -121,6 +121,7 @@
     <Compile Include="Messaging\CommandExecuted.cs" />
     <Compile Include="Messaging\CommandFailed.cs" />
     <Compile Include="Presentation\MainViewModel.cs" />
+    <Compile Include="Services\AbstractViewsService.cs" />
     <Compile Include="Services\AppSettings.cs" />
     <Compile Include="Services\BobineMadriViewsService.cs" />
     <Compile Include="Services\ServerNotificationsConnector.cs" />

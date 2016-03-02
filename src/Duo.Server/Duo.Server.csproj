@@ -189,6 +189,7 @@
     <Compile Include="Controllers\BobineMadriController.cs" />
     <Compile Include="Data\BobineMadriViewDataContext.cs" />
     <Compile Include="Interceptors\PushToSignalRCommandInterceptor.cs" />
+    <Compile Include="PagingHelper.cs" />
     <Compile Include="ProgramService.cs">
       <SubType>Component</SubType>
     </Compile>

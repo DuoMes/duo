@@ -1,4 +1,5 @@
 ﻿using Duo.Domain.ViewModels.BobineMadri;
+using Duo.Domain.ViewModels;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Duo.Clients.Wpf.Services
 {
-    class BobineMadriViewsService
+    class BobineMadriViewsService: AbstractViewsService
     {
         Services.AppSettings settings;
 
@@ -24,27 +25,27 @@ namespace Duo.Clients.Wpf.Services
             {
                 var url = $"{this.settings.ApiBaseAddress}bobinemadri/{id}";
 
-                var response = await apiClient.GetAsync(url);
-                var apiResult = await response.Content.ReadAsStringAsync();
-
-                var data = JsonConvert.DeserializeObject<BobinaMadreView>(apiResult);
-
-                return data;
+                return await this.GetAsync<BobinaMadreView>(apiClient, url);
             }
         }
 
-        public async Task<IEnumerable<BobinaMadreView>> List()
+        public async Task<PagedResultsViewModel<BobinaMadreView>> List(int i = 0, int s = 25)
         {
             using(var apiClient = new HttpClient())
             {
-                var url = $"{this.settings.ApiBaseAddress}bobinemadri";
+                var url = $"{this.settings.ApiBaseAddress}bobinemadri/?i={i}&s={s}";
 
-                var response = await apiClient.GetAsync(url);
-                var apiResult = await response.Content.ReadAsStringAsync();
+                return await this.GetAsync<PagedResultsViewModel<BobinaMadreView>>(apiClient, url);
+            }
+        }
 
-                var data = JsonConvert.DeserializeObject<IEnumerable<BobinaMadreView>>(apiResult);
+        public async Task<PagedResultsViewModel<BobinaMadreView>> SearchByCode( String code, int i = 0, int s = 25)
+        {
+            using(var apiClient = new HttpClient())
+            {
+                var url = $"{this.settings.ApiBaseAddress}bobinemadri/SearchByCode/?q={code}&i={i}&s={s}";
 
-                return data;
+                return await this.GetAsync<PagedResultsViewModel<BobinaMadreView>>(apiClient, url);
             }
         }
     }

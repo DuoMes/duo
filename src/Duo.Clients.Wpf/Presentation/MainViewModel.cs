@@ -16,18 +16,27 @@ namespace Duo.Clients.Wpf.Presentation
             this.bobineMadriViewsService = bobineMadriViewsService;
         }
 
-        public async void Test()
+        public async void CreateNew()
         {
             var commandClient = new CommandClient(this.settings.JasonBaseAddress);
-            var result = await commandClient.ExecuteAsync<Guid>(Guid.NewGuid().ToString(), new CreaNuovaBobinaMadre()
+            var newItemId = await commandClient.ExecuteAsync<Guid>(Guid.NewGuid().ToString(), new CreaNuovaBobinaMadre()
             {
                 Codice = "12345",
                 Fascia = 8200,
                 Lunghezza = 22000
             });
 
-            var view = await this.bobineMadriViewsService.GetById(result);
+            var view = await this.bobineMadriViewsService.GetById(newItemId);
+        }
 
+        public async void List()
+        {
+            var view = await this.bobineMadriViewsService.List();
+        }
+
+        public async void SearchByCode()
+        {
+            var view = await this.bobineMadriViewsService.SearchByCode("34");
         }
     }
 }
