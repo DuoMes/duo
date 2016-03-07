@@ -9,9 +9,9 @@ namespace Duo.Domain.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            var companyState = modelBuilder.Entity<BobineMadri.BobinaMadre.Stato>()
+            var companyState = modelBuilder.Entity<BobineMadri.BobinaMadre.BobinaMadreStato>()
                 .ToTable("BobineMadri");
-            modelBuilder.MapPropertiesOf<BobineMadri.BobinaMadre.Stato>();
+            modelBuilder.MapPropertiesOf<BobineMadri.BobinaMadre.BobinaMadreStato>();
 
             //modelBuilder.Entity<Address>()
             //        .ToTable("dbo.PersonAddresses");

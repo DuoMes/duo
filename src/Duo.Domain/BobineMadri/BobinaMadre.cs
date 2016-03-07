@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Duo.Domain.BobineMadri
 {
-    public class BobinaMadre: Aggregate<BobinaMadre.Stato>
+    public class BobinaMadre: Aggregate<BobinaMadre.BobinaMadreStato>
     {
-        public class Stato : AggregateState
+        public class BobinaMadreStato : AggregateState
         {
             public string Codice { get; set;}
             public int Lunghezza { get; set; }
@@ -20,7 +20,7 @@ namespace Duo.Domain.BobineMadri
         {
             public BobinaMadre CreaNuova(string codice, int lunghezza, int fascia)
             {
-                var stato = new Stato() {
+                var stato = new BobinaMadreStato() {
                     Codice = codice,
                     Fascia = fascia,
                     Lunghezza = lunghezza
@@ -31,7 +31,7 @@ namespace Duo.Domain.BobineMadri
             }
         }
 
-        private BobinaMadre(BobinaMadre.Stato stato)
+        private BobinaMadre(BobinaMadre.BobinaMadreStato stato)
             :base(stato)
         {                        
         }
