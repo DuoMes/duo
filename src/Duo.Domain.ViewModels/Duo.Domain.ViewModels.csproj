@@ -43,6 +43,7 @@
     <Compile Include="BobineMadri\BobinaMadreView.cs" />
     <Compile Include="PagedResultsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Trattamenti\TrattamentoView.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
