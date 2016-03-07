@@ -13,9 +13,9 @@ namespace Duo.Domain.Data
                 .ToTable("BobineMadri");
             modelBuilder.MapPropertiesOf<BobineMadri.BobinaMadre.Stato>();
 
-            var trattamentiState = modelBuilder.Entity<Trattamenti.Trattamento.Stato>()
+            var trattamentiState = modelBuilder.Entity<Trattamenti.Trattamento.StatoTrattamento>()
                 .ToTable("Trattamenti");
-            modelBuilder.MapPropertiesOf<Trattamenti.Trattamento.Stato>();
+            modelBuilder.MapPropertiesOf<Trattamenti.Trattamento.StatoTrattamento>();
 
             //modelBuilder.Entity<Address>()
             //        .ToTable("dbo.PersonAddresses");

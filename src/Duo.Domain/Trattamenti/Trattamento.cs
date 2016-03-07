@@ -2,10 +2,10 @@
 
 namespace Duo.Domain.Trattamenti
 {
-    public class Trattamento : Aggregate<Trattamento.Stato>
+    public class Trattamento : Aggregate<Trattamento.StatoTrattamento>
     {
 
-        public class Stato : AggregateState
+        public class StatoTrattamento : AggregateState
         {
             public string Codice { get; set; }
             public string Descrizione { get; set; }
@@ -15,7 +15,7 @@ namespace Duo.Domain.Trattamenti
         {
             public Trattamento CreaNuovo(string codice, string descrizione)
             {
-                var stato = new Stato()
+                var stato = new StatoTrattamento()
                 {
                     Codice = codice,
                     Descrizione = descrizione
@@ -26,7 +26,7 @@ namespace Duo.Domain.Trattamenti
             }
         }
 
-        private Trattamento(Trattamento.Stato stato)
+        private Trattamento(Trattamento.StatoTrattamento stato)
             :base(stato)
         {
         }
