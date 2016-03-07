@@ -187,7 +187,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\BobineMadriController.cs" />
+    <Compile Include="Controllers\TrattamentiController.cs" />
     <Compile Include="Data\BobineMadriViewDataContext.cs" />
+    <Compile Include="Data\TrattamentiViewDataContext.cs" />
     <Compile Include="Interceptors\PushToSignalRCommandInterceptor.cs" />
     <Compile Include="PagingHelper.cs" />
     <Compile Include="ProgramService.cs">

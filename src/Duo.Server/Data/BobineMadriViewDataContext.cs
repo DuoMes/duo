@@ -1,15 +1,11 @@
 ﻿using Duo.Domain.ViewModels.BobineMadri;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Duo.Server.Data
 {
-    class BobineMadriViewDataContext: DbContext
+    class BobineMadriViewDataContext : DbContext
     {
         readonly DbSet<BobinaMadreView> _bobinaMadreViewSet;
 
