@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Duo.Clients.Wpf.Services
 {
-    class TrattamentiViewsService: AbstractViewsService
+    class TrattamentiViewsService : AbstractViewsService
     {
         Services.AppSettings settings;
 
@@ -22,7 +22,7 @@ namespace Duo.Clients.Wpf.Services
         {
             using (var apiClient = new HttpClient())
             {
-                var url = $"{this.settings.ApiBaseAddress}bobinemadri/{id}";
+                var url = $"{this.settings.ApiBaseAddress}trattamenti/{id}";
 
                 return await this.GetAsync<TrattamentoView>(apiClient, url);
             }
@@ -32,7 +32,7 @@ namespace Duo.Clients.Wpf.Services
         {
             using (var apiClient = new HttpClient())
             {
-                var url = $"{this.settings.ApiBaseAddress}bobinemadri/?i={i}&s={s}";
+                var url = $"{this.settings.ApiBaseAddress}trattamenti/?i={i}&s={s}";
 
                 return await this.GetAsync<PagedResultsViewModel<TrattamentoView>>(apiClient, url);
             }
@@ -42,10 +42,26 @@ namespace Duo.Clients.Wpf.Services
         {
             using (var apiClient = new HttpClient())
             {
-                var url = $"{this.settings.ApiBaseAddress}bobinemadri/SearchByCode/?q={code}&i={i}&s={s}";
+                var url = $"{this.settings.ApiBaseAddress}trattamenti/SearchByCode/?q={code}&i={i}&s={s}";
 
                 return await this.GetAsync<PagedResultsViewModel<TrattamentoView>>(apiClient, url);
             }
         }
+
+        internal async void Salva(TrattamentoView trattamento)
+        {
+            using (var apiClient = new HttpClient())
+            {
+                var url = $"{this.settings.ApiBaseAddress}trattamenti/Save";
+
+                var postData = new List<KeyValuePair<string, string>>();
+                postData.Add(new KeyValuePair<string, string>("Id", trattamento.Id.ToString()));
+                postData.Add(new KeyValuePair<string, string>("Codice", trattamento.Codice));
+                postData.Add(new KeyValuePair<string, string>("Descrizione", trattamento.Descrizione));
+
+                await this.PostAsync<TrattamentoView>(apiClient, url, new FormUrlEncodedContent(postData));
+            }
+        }
+
     }
 }

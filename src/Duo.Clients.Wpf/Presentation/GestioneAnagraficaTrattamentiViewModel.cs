@@ -24,7 +24,7 @@ namespace Duo.Clients.Wpf.Presentation
         public async void CaricaTrattamenti()
         {
             var view = await trattamentiViewsService.List();
-            //this.Trattamenti = new ObservableCollection<TrattamentoView>(view);
+            this.Trattamenti = new ObservableCollection<TrattamentoView>(view.Results);
 
         }
 
@@ -57,7 +57,10 @@ namespace Duo.Clients.Wpf.Presentation
 
         public void AggiungiTrattamento()
         {
-
+            this.broker.Broadcast(this, new Messaging.ApriManutenzioneTrattamentoMessage
+            {
+                Trattamento = new TrattamentoView()
+            });
         }
 
         public void ModificaTrattamento()

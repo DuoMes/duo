@@ -120,13 +120,17 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Behaviors\DataGridExtensions.cs" />
+    <Compile Include="Messaging\ApriManutenzioneTrattamentoMessage.cs" />
     <Compile Include="Messaging\ApriGestioneAnagraficaTrattamentiMessage.cs" />
     <Compile Include="Messaging\CommandExecuted.cs" />
     <Compile Include="Messaging\CommandFailed.cs" />
     <Compile Include="Messaging\ApriGestioneAnagraficheMessage.cs" />
     <Compile Include="Messaging\Handlers\ApriGestioneAnagraficaTrattamentiMessageHandler.cs" />
     <Compile Include="Messaging\Handlers\ApriGestioneAnagraficheMessageHandler.cs" />
+    <Compile Include="Messaging\Handlers\ApriManutenzioneTrattamentoMessageHandler.cs" />
+    <Compile Include="Messaging\Handlers\SalvaTrattamentoMessageHandler.cs" />
     <Compile Include="Messaging\Handlers\VisualizzaMessageBoxMessageHandler.cs" />
+    <Compile Include="Messaging\SalvaTrattamentoMessage.cs" />
     <Compile Include="Messaging\VisualizzaMessageBoxMessage.cs" />
     <Compile Include="Presentation\GestioneAnagraficheView.xaml.cs">
       <DependentUpon>GestioneAnagraficheView.xaml</DependentUpon>
@@ -137,6 +141,10 @@
       <DependentUpon>GestioneAnagraficaTrattamentiView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Presentation\GestioneAnagraficaTrattamentiViewModel.cs" />
+    <Compile Include="Presentation\ManutenzioneTrattamentoView.xaml.cs">
+      <DependentUpon>ManutenzioneTrattamentoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ManutenzioneTrattamentoViewModel.cs" />
     <Compile Include="Services\AbstractViewsService.cs" />
     <Compile Include="Services\AppSettings.cs" />
     <Compile Include="Services\BobineMadriViewsService.cs" />
@@ -184,6 +192,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Presentation\GestioneAnagraficaTrattamentiView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\ManutenzioneTrattamentoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
