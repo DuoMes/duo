@@ -27,6 +27,7 @@ namespace Duo.Server.Controllers
                 var totalCount = dataContext.TrattamentiView.Count();
 
                 var page = dataContext.TrattamentiView
+                    .OrderBy(x => x.Codice)
                     .Skip(i * s)
                     .Take(s)
                     .ToList();
@@ -58,6 +59,7 @@ namespace Duo.Server.Controllers
 
                 var page = dataContext.TrattamentiView
                     .Where(query)
+                    .OrderBy(x => x.Codice)
                     .Skip(i * s)
                     .Take(s)
                     .ToList();
