@@ -1,6 +1,7 @@
 ﻿using Duo.Messages.BobineMadri.Commands;
 using Radical.CQRS.Client;
 using System;
+using Topics.Radical.ComponentModel.Messaging;
 using Topics.Radical.Windows.Presentation;
 
 namespace Duo.Clients.Wpf.Presentation
@@ -10,10 +11,13 @@ namespace Duo.Clients.Wpf.Presentation
         Services.AppSettings settings;
         Services.BobineMadriViewsService bobineMadriViewsService;
 
-        public MainViewModel(Services.AppSettings settings, Services.BobineMadriViewsService bobineMadriViewsService)
+        readonly IMessageBroker broker;
+
+        public MainViewModel(Services.AppSettings settings, Services.BobineMadriViewsService bobineMadriViewsService, IMessageBroker broker)
         {
             this.settings = settings;
             this.bobineMadriViewsService = bobineMadriViewsService;
+            this.broker = broker;
         }
 
         public async void CreateNew()
@@ -37,6 +41,11 @@ namespace Duo.Clients.Wpf.Presentation
         public async void SearchByCode()
         {
             var view = await this.bobineMadriViewsService.SearchByCode("34");
+        }
+
+        public void ApriGestioneAnagrafiche()
+        {
+            this.broker.Broadcast(this, new Messaging.ApriGestioneAnagraficheMessage());
         }
     }
 }

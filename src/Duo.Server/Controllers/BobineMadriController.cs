@@ -27,6 +27,7 @@ namespace Duo.Server.Controllers
                 var totalCount = dataContext.BobineMadriView.Count();
 
                 var page = dataContext.BobineMadriView
+                    .OrderBy(x => x.Codice)
                     .Skip(i * s)
                     .Take(s)
                     .ToList();
