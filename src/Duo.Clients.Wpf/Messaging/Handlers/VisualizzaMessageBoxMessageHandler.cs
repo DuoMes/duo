@@ -10,18 +10,7 @@ namespace Duo.Clients.Wpf.Messaging.Handlers
     {
         public override void Handle(object sender, VisualizzaMessageBoxMessage message)
         {
-            if (Application.Current.Dispatcher.CheckAccess())
-            {
-                MessageBox.Show(Application.Current.MainWindow, message.Message, message.Caption, MessageBoxButton.OK, message.Icon);
-            }
-            else
-            {
-                Application.Current.Dispatcher.Invoke(DispatcherPriority.Normal, new Action(() =>
-                {
-                    MessageBox.Show(Application.Current.MainWindow, message.Message, message.Caption, MessageBoxButton.OK, message.Icon);
-                }));
-            }
-
+            MessageBox.Show(Application.Current.MainWindow, message.Message, message.Caption, MessageBoxButton.OK, message.Icon);
         }
     }
 }
