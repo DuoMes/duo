@@ -77,9 +77,5 @@ namespace Duo.Server.Controllers
             }
         }
 
-        [HttpPost]
-        public void Salva(TrattamentoView trattamento)
-        {
-        }
     }
 }

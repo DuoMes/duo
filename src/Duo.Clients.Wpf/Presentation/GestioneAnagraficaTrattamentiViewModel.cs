@@ -1,5 +1,8 @@
 ﻿using Duo.Clients.Wpf.Services;
 using Duo.Domain.ViewModels.Trattamenti;
+using Duo.Messages.Trattamenti.Commands;
+using Radical.CQRS.Client;
+using System;
 using System.Collections.ObjectModel;
 using Topics.Radical.ComponentModel.Messaging;
 using Topics.Radical.Windows.Presentation;
@@ -9,10 +12,13 @@ namespace Duo.Clients.Wpf.Presentation
     class GestioneAnagraficaTrattamentiViewModel : AbstractViewModel
     {
         readonly IMessageBroker broker;
-        TrattamentiViewsService trattamentiViewsService;
+        readonly TrattamentiViewsService trattamentiViewsService;
+        readonly Services.AppSettings settings;
 
-        public GestioneAnagraficaTrattamentiViewModel(IMessageBroker broker, Services.TrattamentiViewsService trattamentiViewsService)
+
+        public GestioneAnagraficaTrattamentiViewModel(Services.AppSettings settings, IMessageBroker broker, Services.TrattamentiViewsService trattamentiViewsService)
         {
+            this.settings = settings;
             this.broker = broker;
             this.trattamentiViewsService = trattamentiViewsService;
 
@@ -59,30 +65,27 @@ namespace Duo.Clients.Wpf.Presentation
         {
             this.broker.Broadcast(this, new Messaging.ApriManutenzioneTrattamentoMessage
             {
-                Trattamento = new TrattamentoView()
+                Id = Guid.Empty
             });
         }
 
         public void ModificaTrattamento()
         {
-
+            this.broker.Broadcast(this, new Messaging.ApriManutenzioneTrattamentoMessage
+            {
+                Id = TrattamentoSelezionato.Id,
+                Codice = TrattamentoSelezionato.Codice,
+                Descrizione = TrattamentoSelezionato.Descrizione
+            });
         }
 
-        public void EliminaTrattamento()
+        public async void EliminaTrattamento()
         {
-            if (TrattamentoSelezionato == null)
+            var commandClient = new CommandClient(this.settings.JasonBaseAddress);
+            var newItemId = await commandClient.ExecuteAsync<Guid>(Guid.NewGuid().ToString(), new EliminaTrattamento()
             {
-                this.broker.Broadcast(this, new Messaging.VisualizzaMessageBoxMessage
-                {
-                    Message = "E' necessario selezionare un elemento prima di procedere.",
-                    Caption = "Cancellazione trattamento",
-                    Icon = System.Windows.MessageBoxImage.Warning
-                });
-                return;
-            }
-
-            //trattamentiViewsService.Delete(TrattamentoSelezionato);
-            this.Trattamenti.Remove(TrattamentoSelezionato);
+                Id = TrattamentoSelezionato.Id
+            });
         }
 
     }

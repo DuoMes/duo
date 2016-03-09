@@ -1,20 +1,40 @@
 ﻿using Duo.Domain.ViewModels.Trattamenti;
+using Duo.Messages.Trattamenti.Commands;
+using Radical.CQRS.Client;
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 using Topics.Radical.ComponentModel.Messaging;
 using Topics.Radical.Windows.Presentation;
+using Topics.Radical.Windows.Presentation.ComponentModel;
 using Topics.Radical.Windows.Presentation.Messaging;
+using Topics.Radical.Windows.Presentation.Services.Validation;
 
 namespace Duo.Clients.Wpf.Presentation
 {
-    class ManutenzioneTrattamentoViewModel : AbstractViewModel
+    class ManutenzioneTrattamentoViewModel : AbstractViewModel, IRequireValidation
     {
         readonly IMessageBroker broker;
+        readonly Services.AppSettings settings;        
 
-        public TrattamentoView Trattamento
+        public Guid Id
         {
-            get { return this.GetPropertyValue(() => this.Trattamento); }
-            set { this.SetPropertyValue(() => this.Trattamento, value); }
+            get { return this.GetPropertyValue(() => this.Id); }
+            set { this.SetPropertyValue(() => this.Id, value); }
+        }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Il campo codice non può essere vuoto")]
+        public string Codice
+        {
+            get { return this.GetPropertyValue(() => this.Codice); }
+            set { this.SetPropertyValue(() => this.Codice, value); }
+        }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Il campo descrizione non può essere vuoto")]
+        public string Descrizione
+        {
+            get { return this.GetPropertyValue(() => this.Descrizione); }
+            set { this.SetPropertyValue(() => this.Descrizione, value); }
         }
 
         public string WindowTitle
@@ -22,56 +42,54 @@ namespace Duo.Clients.Wpf.Presentation
             get { return this.GetPropertyValue(() => this.WindowTitle); }
             set { this.SetPropertyValue(() => this.WindowTitle, value); }
         }
-        public ManutenzioneTrattamentoViewModel(IMessageBroker broker)
+
+        public ManutenzioneTrattamentoViewModel(Services.AppSettings settings, IMessageBroker broker)
         {
+            this.settings = settings;
             this.broker = broker;
-            this.WindowTitle = (Trattamento.Id == Guid.Empty) ? "Inserimento Trattamento" : "Manutenzione Trattamento";
+            this.WindowTitle = (this.Id == Guid.Empty) ? "Inserimento Trattamento" : "Manutenzione Trattamento";
         }
 
-        private string ControllaInserimento()
+        protected override IValidationService GetValidationService()
         {
-            var errori = new StringBuilder("");
-
-            if (string.IsNullOrEmpty(Trattamento.Codice))
-            {
-                errori.AppendLine(string.Format(" - {0}", "Il codice non può essere vuoto"));
-            }
-
-            if (string.IsNullOrEmpty(Trattamento.Descrizione))
-            {
-                errori.AppendLine(string.Format(" - {0}", "La desrizione non può essere vuota"));
-            }
-
-            return errori.ToString();
+            return new DataAnnotationValidationService<ManutenzioneTrattamentoViewModel>(this);
         }
 
 #pragma warning disable 0618
 
-        public void Conferma()
+        public async void Conferma()
         {
-            string errori = ControllaInserimento();
+            this.Validate();
 
-            if (!string.IsNullOrEmpty(errori))
+            if (!this.IsValid)
             {
+                var errori = new StringBuilder("");
+                foreach (var item in this.ValidationErrors)
+                {
+                    errori.AppendLine(string.Format(" - {0}", item.ToString()));
+                }
                 this.broker.Broadcast(this, new Messaging.VisualizzaMessageBoxMessage
                 {
                     Message = "Alcuni dati non sono stati inseriti corettamente" + Environment.NewLine + errori,
-                    Caption = (Trattamento.Id == Guid.Empty) ? "Inserimento Trattamento" : "Manutenzione Trattamento",
+                    Caption = this.WindowTitle,
                     Icon = System.Windows.MessageBoxImage.Warning
                 });
                 return;
             }
 
-            this.broker.Broadcast(this, new Messaging.SalvaTrattamentoMessage
+            var commandClient = new CommandClient(this.settings.JasonBaseAddress);
+            if (this.Id == Guid.Empty)
             {
-                Trattamento = new TrattamentoView
+                var newItemId = await commandClient.ExecuteAsync<Guid>(Guid.NewGuid().ToString(), new CreaNuovoTrattamento()
                 {
-                    Id = Trattamento.Id,
-                    Codice = Trattamento.Codice,
-                    Descrizione = Trattamento.Descrizione
-                }
-            });
-
+                    Codice = this.Codice,
+                    Descrizione = this.Descrizione
+                });
+            }
+            else
+            {
+                
+            }
 
             this.broker.Broadcast(new CloseViewRequest(this));
         }

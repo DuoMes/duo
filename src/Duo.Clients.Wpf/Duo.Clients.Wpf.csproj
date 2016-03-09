@@ -128,9 +128,7 @@
     <Compile Include="Messaging\Handlers\ApriGestioneAnagraficaTrattamentiMessageHandler.cs" />
     <Compile Include="Messaging\Handlers\ApriGestioneAnagraficheMessageHandler.cs" />
     <Compile Include="Messaging\Handlers\ApriManutenzioneTrattamentoMessageHandler.cs" />
-    <Compile Include="Messaging\Handlers\SalvaTrattamentoMessageHandler.cs" />
     <Compile Include="Messaging\Handlers\VisualizzaMessageBoxMessageHandler.cs" />
-    <Compile Include="Messaging\SalvaTrattamentoMessage.cs" />
     <Compile Include="Messaging\VisualizzaMessageBoxMessage.cs" />
     <Compile Include="Presentation\GestioneAnagraficheView.xaml.cs">
       <DependentUpon>GestioneAnagraficheView.xaml</DependentUpon>
@@ -219,13 +217,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\document-edit.png" />
+    <Resource Include="Resources\document-edit.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\document-new-4.png" />
+    <Resource Include="Resources\document-new-4.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\trashcan_full.png" />
+    <Resource Include="Resources\trashcan_full.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />

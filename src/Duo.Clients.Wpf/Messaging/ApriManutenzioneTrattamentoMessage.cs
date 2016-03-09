@@ -1,9 +1,12 @@
 ﻿using Duo.Domain.ViewModels.Trattamenti;
+using System;
 
 namespace Duo.Clients.Wpf.Messaging
 {
     class ApriManutenzioneTrattamentoMessage
     {
-        public TrattamentoView Trattamento { get; set; }
+        public Guid Id { get; set; }
+        public string Codice { get; set; }
+        public string Descrizione { get; set; }
     }
 }

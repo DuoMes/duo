@@ -48,20 +48,5 @@ namespace Duo.Clients.Wpf.Services
             }
         }
 
-        internal async void Salva(TrattamentoView trattamento)
-        {
-            using (var apiClient = new HttpClient())
-            {
-                var url = $"{this.settings.ApiBaseAddress}trattamenti/Save";
-
-                var postData = new List<KeyValuePair<string, string>>();
-                postData.Add(new KeyValuePair<string, string>("Id", trattamento.Id.ToString()));
-                postData.Add(new KeyValuePair<string, string>("Codice", trattamento.Codice));
-                postData.Add(new KeyValuePair<string, string>("Descrizione", trattamento.Descrizione));
-
-                await this.PostAsync<TrattamentoView>(apiClient, url, new FormUrlEncodedContent(postData));
-            }
-        }
-
     }
 }

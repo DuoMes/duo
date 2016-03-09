@@ -4,7 +4,9 @@
         xmlns:markup="http://schemas.topics.it/wpf/radical/windows/markup"
         xmlns:behavior="http://schemas.topics.it/wpf/radical/windows/behaviors"
         xmlns:rg="http://schemas.topics.it/wpf/radical/windows/presentation/regions"
-        Title="{Binding WindowTitle}" Height="226.071" Width="300">
+        Title="{Binding WindowTitle}" 
+        Height="250" 
+        Width="309.689" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -14,11 +16,11 @@
         <StackPanel Grid.Row="0" Orientation="Vertical" Margin="20">
             <StackPanel Orientation="Horizontal" Margin="0,10,0,10">
                 <Label Content="Codice" Width="100" />
-                <TextBox Width="150" Text="{Binding Trattamento.Codice}" VerticalAlignment="Center" />
+                <TextBox Width="150" Text="{markup:EditorBinding Path=Codice}" VerticalAlignment="Center" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,10,0,10">
                 <Label Content="Descrizione" Width="100" />
-                <TextBox Width="150" Text="{Binding Trattamento.Descrizione}" VerticalAlignment="Center" />
+                <TextBox Width="150" Text="{markup:EditorBinding Path=Descrizione}" VerticalAlignment="Center" />
             </StackPanel>
         </StackPanel>
 
