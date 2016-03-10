@@ -59,6 +59,7 @@ namespace Duo.Server.Controllers
 
                 var page = dataContext.BobineMadriView
                     .Where(query)
+                    .OrderBy(x => x.Codice)
                     .Skip(i * s)
                     .Take(s)
                     .ToList();
