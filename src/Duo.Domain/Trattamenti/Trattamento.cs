@@ -43,11 +43,16 @@ namespace Duo.Domain.Trattamenti
         public void CambiaCodice(string codice)
         {
 
-            this.RaiseEvent<ITrattamentoCreato>(e =>
+            if (this.Data.Codice != codice)
             {
-                e.Codice = this.Data.Codice;
-                e.Descrizione = this.Data.Descrizione;
-            });
+                var vecchio = this.Data.Codice;
+                this.Data.Codice = codice;
+                this.RaiseEvent<ICodiceTrattamentoModificato>(e =>
+                {
+                    e.Vecchio = vecchio;
+                    e.Nuovo = this.Data.Codice;
+                });
+            }
 
         }
 
