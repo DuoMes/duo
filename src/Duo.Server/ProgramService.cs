@@ -6,6 +6,7 @@ using Owin;
 using Microsoft.Owin.Cors;
 using System.ServiceProcess;
 using Topics.Radical;
+using Newtonsoft.Json;
 
 namespace Duo.Server
 {
@@ -55,6 +56,11 @@ namespace Duo.Server
             this._server.AddJasonWebAPIEndpointCustomization(endpoint => 
             {
                 endpoint.IsCommandConvention = t => t.Namespace != null && t.Namespace.EndsWith(".Commands");
+            });
+
+            this._server.AddHttpConfigurationCustomization(config => 
+            {
+                config.Formatters.JsonFormatter.SerializerSettings.ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor;
             });
 
             //AddODataSupport(this._server);
