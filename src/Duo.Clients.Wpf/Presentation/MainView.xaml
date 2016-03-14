@@ -3,10 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:markup="http://schemas.topics.it/wpf/radical/windows/markup"
+        xmlns:behaviors="http://schemas.topics.it/wpf/radical/windows/behaviors"
+        xmlns:rg="http://schemas.topics.it/wpf/radical/windows/presentation/regions"
         xmlns:local="clr-namespace:Duo.Clients.Wpf.Presentation"
         mc:Ignorable="d"
         Title="MainView" Height="300" Width="300">
     <Grid>
-        
+        <Button Content="Anagrafiche" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="81" Height="25"
+                Command="{markup:AutoCommandBinding Path=ApriGestioneAnagrafiche}"/>
+
     </Grid>
 </Window>

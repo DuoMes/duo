@@ -19,5 +19,6 @@ namespace Duo.Clients.Wpf.Services
 
             return data;
         }
+
     }
 }

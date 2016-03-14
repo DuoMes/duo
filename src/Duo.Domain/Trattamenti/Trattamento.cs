@@ -1,4 +1,5 @@
-﻿using Radical.CQRS;
+﻿using System;
+using Radical.CQRS;
 
 namespace Duo.Domain.Trattamenti
 {
@@ -56,6 +57,20 @@ namespace Duo.Domain.Trattamenti
 
         }
 
+        public void CambiaDescrizione(string descrizione)
+        {
 
+            if (this.Data.Descrizione != descrizione)
+            {
+                var vecchia = this.Data.Descrizione;
+                this.Data.Descrizione = descrizione;
+                this.RaiseEvent<IDescrizioneTrattamentoModificato>(e =>
+                {
+                    e.Vecchia = vecchia;
+                    e.Nuova = this.Data.Descrizione;
+                });
+            }
+
+        }
     }
 }
