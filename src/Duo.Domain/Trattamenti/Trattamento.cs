@@ -67,7 +67,7 @@ namespace Duo.Domain.Trattamenti
                 this.RaiseEvent<IDescrizioneTrattamentoModificato>(e =>
                 {
                     e.Vecchia = vecchia;
-                    e.Nuova = this.Data.Codice;
+                    e.Nuova = this.Data.Descrizione;
                 });
             }
 

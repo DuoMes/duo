@@ -27,7 +27,7 @@ namespace Duo.Clients.Wpf.Presentation
             ManagePropertyMetadata();
         }
 
-        public async void CaricaTrattamenti()
+        private async void CaricaTrattamenti()
         {
             var view = await trattamentiViewsService.List();
             this.Trattamenti = new ObservableCollection<TrattamentoView>(view.Results);

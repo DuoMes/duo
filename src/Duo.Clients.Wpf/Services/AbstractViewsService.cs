@@ -20,14 +20,5 @@ namespace Duo.Clients.Wpf.Services
             return data;
         }
 
-        protected async Task<T> PostAsync<T>(HttpClient apiClient, String url,HttpContent content )
-        {
-            var response = await apiClient.PostAsync(url,content);
-            var apiResult = await response.Content.ReadAsStringAsync();
-
-            var data = JsonConvert.DeserializeObject<T>(apiResult);
-
-            return data;
-        }
     }
 }

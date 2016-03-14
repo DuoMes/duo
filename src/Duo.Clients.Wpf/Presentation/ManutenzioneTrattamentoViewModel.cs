@@ -15,13 +15,9 @@ namespace Duo.Clients.Wpf.Presentation
     class ManutenzioneTrattamentoViewModel : AbstractViewModel, IRequireValidation
     {
         readonly IMessageBroker broker;
-        readonly Services.AppSettings settings;        
+        readonly Services.AppSettings settings;
 
-        public Guid Id
-        {
-            get { return this.GetPropertyValue(() => this.Id); }
-            set { this.SetPropertyValue(() => this.Id, value); }
-        }
+        public Guid Id;
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Il campo codice non può essere vuoto")]
         public string Codice
@@ -40,7 +36,7 @@ namespace Duo.Clients.Wpf.Presentation
         public string WindowTitle
         {
             get { return this.GetPropertyValue(() => this.WindowTitle); }
-            set { this.SetPropertyValue(() => this.WindowTitle, value); }
+            private set { this.SetPropertyValue(() => this.WindowTitle, value); }
         }
 
         public ManutenzioneTrattamentoViewModel(Services.AppSettings settings, IMessageBroker broker)
@@ -88,7 +84,7 @@ namespace Duo.Clients.Wpf.Presentation
             }
             else
             {
-                
+
             }
 
             this.broker.Broadcast(new CloseViewRequest(this));

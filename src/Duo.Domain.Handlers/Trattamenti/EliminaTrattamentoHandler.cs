@@ -19,7 +19,7 @@ namespace Duo.Domain.Handlers.Trattamenti
                 var trattamento = session.GetById<Trattamento>(command.Id);
                 //session.Remove(trattamento);
                 session.CommitChanges();
-                return null;
+                return trattamento.Id;
             }
 
 
