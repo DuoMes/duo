@@ -23,12 +23,7 @@ namespace Duo.Clients.Wpf.Presentation
         public async void CreateNew()
         {
             var commandClient = new CommandClient(this.settings.JasonBaseAddress);
-            var newItemId = await commandClient.ExecuteAsync<Guid>(Guid.NewGuid().ToString(), new CreaNuovaBobinaMadre()
-            {
-                Codice = "12345",
-                Fascia = 8200,
-                Lunghezza = 22000
-            });
+            var newItemId = await commandClient.ExecuteAsync<Guid>(Guid.NewGuid().ToString(), new CreaNuovaBobinaMadre("12345",8200,22000));
 
             var view = await this.bobineMadriViewsService.GetById(newItemId);
         }

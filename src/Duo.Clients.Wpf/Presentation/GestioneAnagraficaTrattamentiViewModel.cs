@@ -82,10 +82,7 @@ namespace Duo.Clients.Wpf.Presentation
         public async void EliminaTrattamento()
         {
             var commandClient = new CommandClient(this.settings.JasonBaseAddress);
-            var newItemId = await commandClient.ExecuteAsync<Guid>(Guid.NewGuid().ToString(), new EliminaTrattamento()
-            {
-                Id = TrattamentoSelezionato.Id
-            });
+            var newItemId = await commandClient.ExecuteAsync<Guid>(Guid.NewGuid().ToString(), new EliminaTrattamento(TrattamentoSelezionato.Id, TrattamentoSelezionato.Version));
         }
 
     }

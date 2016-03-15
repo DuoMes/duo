@@ -1,28 +1,18 @@
-﻿using Duo.Domain.Trattamenti;
+﻿using System;
+using Duo.Domain.Trattamenti;
 using Duo.Messages.Trattamenti.Commands;
 using Jason.Handlers.Commands;
 using Radical.CQRS;
+using Radical.CQRS.Handlers;
 
 namespace Duo.Domain.Handlers.Trattamenti
 {
-    class CambiaDescrizioneTrattamentoHandler : AbstractCommandHandler<Duo.Messages.Trattamenti.Commands.CambiaDescrizioneTrattamento>
+    class CambiaDescrizioneTrattamentoHandler : AbstractAggregateCommandHandler<Duo.Domain.Trattamenti.Trattamento, Duo.Messages.Trattamenti.Commands.CambiaDescrizioneTrattamento>
     {
-
-        public IRepositoryFactory RepositoryFactory { get; set; }
-        public Duo.Domain.Trattamenti.Trattamento.Factory Factory { get; set; }
-
-        protected override object OnExecute(CambiaDescrizioneTrattamento command)
+        public override void Manipulate(Trattamento aggregate, CambiaDescrizioneTrattamento command)
         {
-
-            using (var session = RepositoryFactory.OpenSession())
-            {
-                var trattamento = session.GetById<Trattamento>(command.Id);
-                trattamento.CambiaDescrizione(command.Descrizione);
-                session.CommitChanges();
-                return trattamento.Id;
-            }
-
-
+            aggregate.CambiaDescrizione(command.Descrizione);
         }
+
     }
 }

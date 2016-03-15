@@ -76,11 +76,7 @@ namespace Duo.Clients.Wpf.Presentation
             var commandClient = new CommandClient(this.settings.JasonBaseAddress);
             if (this.Id == Guid.Empty)
             {
-                var newItemId = await commandClient.ExecuteAsync<Guid>(Guid.NewGuid().ToString(), new CreaNuovoTrattamento()
-                {
-                    Codice = this.Codice,
-                    Descrizione = this.Descrizione
-                });
+                var newItemId = await commandClient.ExecuteAsync<Guid>(Guid.NewGuid().ToString(), new CreaNuovoTrattamento(this.Codice,this.Descrizione));
             }
             else
             {

@@ -10,6 +10,7 @@ namespace Duo.Domain.Trattamenti
         {
             public string Codice { get; set; }
             public string Descrizione { get; set; }
+            public bool IsCancellato { get; set; } = false;
         }
 
         public class Factory
@@ -39,6 +40,20 @@ namespace Duo.Domain.Trattamenti
                 e.Codice = this.Data.Codice;
                 e.Descrizione = this.Data.Descrizione;
             });
+        }
+
+        public void SegnalaComeCancellato()
+        {
+            if (!this.Data.IsCancellato)
+            {
+                this.Data.IsCancellato = true;
+                this.RaiseEvent<ITrattamentoSegnalatoComeCancellato>(e =>
+                {
+                    e.Codice = this.Data.Codice;
+                    e.Descrizione = this.Data.Descrizione;
+                });
+            }
+
         }
 
         public void CambiaCodice(string codice)

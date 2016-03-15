@@ -1,28 +1,18 @@
-﻿using Duo.Domain.Trattamenti;
+﻿using System;
+using Duo.Domain.Trattamenti;
 using Duo.Messages.Trattamenti.Commands;
 using Jason.Handlers.Commands;
 using Radical.CQRS;
+using Radical.CQRS.Handlers;
 
 namespace Duo.Domain.Handlers.Trattamenti
 {
-    class EliminaTrattamentoHandler : AbstractCommandHandler<Duo.Messages.Trattamenti.Commands.EliminaTrattamento>
+    class EliminaTrattamentoHandler : AbstractAggregateCommandHandler<Duo.Domain.Trattamenti.Trattamento, Duo.Messages.Trattamenti.Commands.EliminaTrattamento>
     {
 
-        public IRepositoryFactory RepositoryFactory { get; set; }
-        public Duo.Domain.Trattamenti.Trattamento.Factory Factory { get; set; }
-
-        protected override object OnExecute(EliminaTrattamento command)
+        public override void Manipulate(Trattamento aggregate, EliminaTrattamento command)
         {
-
-            using (var session = RepositoryFactory.OpenSession())
-            {
-                var trattamento = session.GetById<Trattamento>(command.Id);
-                //session.Remove(trattamento);
-                session.CommitChanges();
-                return trattamento.Id;
-            }
-
-
+                aggregate.SegnalaComeCancellato();
         }
     }
 }
