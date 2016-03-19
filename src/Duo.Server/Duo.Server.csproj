@@ -126,7 +126,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Radical.CQRS.EntityFramework, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Radical.CQRS.EntityFramework.0.2.0-unstable0007\lib\net45\Radical.CQRS.EntityFramework.dll</HintPath>
+      <HintPath>..\packages\Radical.CQRS.EntityFramework.0.2.0-unstable0011\lib\net45\Radical.CQRS.EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Radical.CQRS.Server, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
