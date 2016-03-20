@@ -2,7 +2,7 @@
 
 namespace Duo.Domain.Trattamenti
 {
-    internal interface ITrattamentoSegnalatoComeCancellato : IDomainEvent
+    public interface ITrattamentoSegnalatoComeCancellato : IDomainEvent
     {
         string Codice { get; set; }
         string Descrizione { get; set; }

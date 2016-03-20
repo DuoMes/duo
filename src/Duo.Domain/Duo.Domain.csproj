@@ -56,8 +56,7 @@
     <Compile Include="BobineMadri\BobinaMadre.cs" />
     <Compile Include="BobineMadri\IBobinaMadreCreata.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Trattamenti\ICodiceTrattamentoModificato.cs" />
-    <Compile Include="Trattamenti\IDescrizioneTrattamentoModificato.cs" />
+    <Compile Include="Trattamenti\IAnagraficaTrattamentoModificata.cs" />
     <Compile Include="Trattamenti\ITrattamentoSegnalatoComeCancellato.cs" />
     <Compile Include="Trattamenti\ITrattamentoCreato.cs" />
     <Compile Include="Trattamenti\Trattamento.cs" />

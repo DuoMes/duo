@@ -60,7 +60,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Radical.CQRS.EntityFramework, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Radical.CQRS.EntityFramework.0.2.0-unstable0007\lib\net45\Radical.CQRS.EntityFramework.dll</HintPath>
+      <HintPath>..\packages\Radical.CQRS.EntityFramework.0.2.0-unstable0011\lib\net45\Radical.CQRS.EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Radical.CQRS.Handlers, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -84,8 +84,7 @@
   <ItemGroup>
     <Compile Include="BobineMadri\CreaNuovaBobinaMadreHanlder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Trattamenti\CambiaCodiceTrattamentoHandler.cs" />
-    <Compile Include="Trattamenti\CambiaDescrizioneTrattamentoHandler.cs" />
+    <Compile Include="Trattamenti\CambiaAnagraficaTrattamentoHandler.cs" />
     <Compile Include="Trattamenti\CreaNuovoTrattamentoHandler.cs" />
     <Compile Include="Trattamenti\EliminaTrattamentoHandler.cs" />
   </ItemGroup>

@@ -21,6 +21,7 @@ namespace Duo.Clients.Wpf.Messaging.Handlers
             var view = viewResolver.GetView<ManutenzioneTrattamentoView, ManutenzioneTrattamentoViewModel>(vm => 
                                                                                                                 {
                                                                                                                     vm.Id = message.Id;
+                                                                                                                    vm.Version = message.Version;
                                                                                                                     vm.Codice = message.Codice;
                                                                                                                     vm.Descrizione = message.Descrizione;
                                                                                                                 });

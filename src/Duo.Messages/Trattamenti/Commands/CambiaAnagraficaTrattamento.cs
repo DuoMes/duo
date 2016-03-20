@@ -7,20 +7,22 @@ using System.Threading.Tasks;
 
 namespace Duo.Messages.Trattamenti.Commands
 {
-    public class CambiaDescrizioneTrattamento : IAggregateCommand
+    public class CambiaAnagraficaTrattamento: IAggregateCommand
     {
         public Guid Id { get; private set; }
-        public int Version { get; private set; }
+        public int Version {get; private set;}
+        public string Codice { get; private set; }
         public string Descrizione { get; private set; }
 
-        private CambiaDescrizioneTrattamento()
+        private CambiaAnagraficaTrattamento()
         {
         }
 
-        public CambiaDescrizioneTrattamento(Guid id, int version, string descrizione)
+        public CambiaAnagraficaTrattamento(Guid id, int version, string codice, string descrizione)
         {
             this.Id = id;
             this.Version = version;
+            this.Codice = codice;
             this.Descrizione = descrizione;
         }
     }
