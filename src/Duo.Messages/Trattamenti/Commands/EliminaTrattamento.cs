@@ -1,13 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Radical.CQRS.Messages;
+using System;
 
 namespace Duo.Messages.Trattamenti.Commands
 {
-    public class EliminaTrattamento
+    public class EliminaTrattamento : IAggregateCommand
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; private set; }
+        public int Version { get; private set; }
+
+        private EliminaTrattamento()
+        {
+
+        }
+
+        public EliminaTrattamento(Guid id, int version)
+        {
+            this.Id = id;
+            this.Version = version;
+        }
     }
 }

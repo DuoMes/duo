@@ -10,6 +10,7 @@ namespace Duo.Domain.Trattamenti
         {
             public string Codice { get; set; }
             public string Descrizione { get; set; }
+            public bool IsCancellato { get; set; } = false;
         }
 
         public class Factory
@@ -41,36 +42,41 @@ namespace Duo.Domain.Trattamenti
             });
         }
 
-        public void CambiaCodice(string codice)
+        public void SegnalaComeCancellato()
+        {
+            if (!this.Data.IsCancellato)
+            {
+                this.Data.IsCancellato = true;
+                this.RaiseEvent<ITrattamentoSegnalatoComeCancellato>(e =>
+                {
+                    e.Codice = this.Data.Codice;
+                    e.Descrizione = this.Data.Descrizione;
+                });
+            }
+
+        }
+
+        public void CambiaAnagraficaTrattamento(string codice, string descrizione)
         {
 
-            if (this.Data.Codice != codice)
+            if (this.Data.Codice != codice || this.Data.Descrizione != descrizione)
             {
-                var vecchio = this.Data.Codice;
+                var vecchioCodice= this.Data.Codice;
+                var vecchiaDescrizione = this.Data.Descrizione;
+
                 this.Data.Codice = codice;
-                this.RaiseEvent<ICodiceTrattamentoModificato>(e =>
-                {
-                    e.Vecchio = vecchio;
-                    e.Nuovo = this.Data.Codice;
-                });
-            }
-
-        }
-
-        public void CambiaDescrizione(string descrizione)
-        {
-
-            if (this.Data.Descrizione != descrizione)
-            {
-                var vecchia = this.Data.Descrizione;
                 this.Data.Descrizione = descrizione;
-                this.RaiseEvent<IDescrizioneTrattamentoModificato>(e =>
+
+                this.RaiseEvent<IAnagraficaTrattamentoModificata>(e =>
                 {
-                    e.Vecchia = vecchia;
-                    e.Nuova = this.Data.Descrizione;
+                    e.VecchioCodice = vecchioCodice;
+                    e.VecchiaDescrizione = vecchiaDescrizione;
+                    e.NuovoCodice = this.Data.Codice;
+                    e.NuovaDescrizione= this.Data.Descrizione;
                 });
             }
 
         }
+
     }
 }

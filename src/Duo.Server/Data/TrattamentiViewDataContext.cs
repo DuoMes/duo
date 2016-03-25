@@ -16,7 +16,7 @@ namespace Duo.Server.Data
 
         public IQueryable<TrattamentoView> TrattamentiView
         {
-            get { return this._trattamentoViewSet.AsNoTracking(); }
+            get { return this._trattamentoViewSet.Where(x => x.IsCancellato == false).AsNoTracking(); }
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

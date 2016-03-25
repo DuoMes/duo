@@ -4,7 +4,7 @@ using Radical.CQRS;
 
 namespace Duo.Domain.Handlers.BobineMadri
 {
-    class CreaNuovaBobinaMadreHanlder : AbstractCommandHandler<Duo.Messages.BobineMadri.Commands.CreaNuovaBobinaMadre>
+    class CreaNuovaBobinaMadreHanlder : AbstractCommandHandler<CreaNuovaBobinaMadre>
     {
 
         public IRepositoryFactory RepositoryFactory { get; set; }

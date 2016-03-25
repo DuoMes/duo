@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Duo.Messages</RootNamespace>
     <AssemblyName>Duo.Messages</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Radical.CQRS.Messages, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Radical.CQRS.Messages.0.2.0-unstable0009\lib\net45\Radical.CQRS.Messages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,12 +47,13 @@
   <ItemGroup>
     <Compile Include="BobineMadri\Commands\CreaNuovaBobinaMadre.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Trattamenti\Commands\CambiaCodiceTrattamento.cs" />
-    <Compile Include="Trattamenti\Commands\CambiaDescrizioneTrattamento.cs" />
+    <Compile Include="Trattamenti\Commands\CambiaAnagraficaTrattamento.cs" />
     <Compile Include="Trattamenti\Commands\CreaNuovoTrattamento.cs" />
     <Compile Include="Trattamenti\Commands\EliminaTrattamento.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -63,29 +63,27 @@ namespace Duo.Clients.Wpf.Presentation
 
         public void AggiungiTrattamento()
         {
-            this.broker.Broadcast(this, new Messaging.ApriManutenzioneTrattamentoMessage
-            {
-                Id = Guid.Empty
-            });
+            this.broker.Broadcast(this, new Messaging.ApriManutenzioneTrattamentoMessage(Guid.Empty, 0, string.Empty, string.Empty));
         }
 
         public void ModificaTrattamento()
         {
-            this.broker.Broadcast(this, new Messaging.ApriManutenzioneTrattamentoMessage
-            {
-                Id = TrattamentoSelezionato.Id,
-                Codice = TrattamentoSelezionato.Codice,
-                Descrizione = TrattamentoSelezionato.Descrizione
-            });
+            this.broker.Broadcast(this, new Messaging.ApriManutenzioneTrattamentoMessage(
+                                                            TrattamentoSelezionato.Id,
+                                                            TrattamentoSelezionato.Version,
+                                                            TrattamentoSelezionato.Codice,
+                                                            TrattamentoSelezionato.Descrizione
+                                                            ));
         }
 
         public async void EliminaTrattamento()
         {
             var commandClient = new CommandClient(this.settings.JasonBaseAddress);
-            var newItemId = await commandClient.ExecuteAsync<Guid>(Guid.NewGuid().ToString(), new EliminaTrattamento()
-            {
-                Id = TrattamentoSelezionato.Id
-            });
+            var newItemId = await commandClient.ExecuteAsync<Guid>(Guid.NewGuid().ToString(),
+                                                                        new EliminaTrattamento(
+                                                                            TrattamentoSelezionato.Id,
+                                                                            TrattamentoSelezionato.Version
+                                                                            ));
         }
 
     }

@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Duo.Migrations</RootNamespace>
     <AssemblyName>Duo.Migrations</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,7 +40,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Radical, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL">
@@ -51,7 +52,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Radical.CQRS.EntityFramework, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Radical.CQRS.EntityFramework.0.2.0-unstable0007\lib\net45\Radical.CQRS.EntityFramework.dll</HintPath>
+      <HintPath>..\packages\Radical.CQRS.EntityFramework.0.2.0-unstable0011\lib\net45\Radical.CQRS.EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -76,6 +77,10 @@
     <Compile Include="Migrations\201603070933393_Trattamenti.cs" />
     <Compile Include="Migrations\201603070933393_Trattamenti.Designer.cs">
       <DependentUpon>201603070933393_Trattamenti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603151447165_FlagTrattamentoCancellato.cs" />
+    <Compile Include="Migrations\201603151447165_FlagTrattamentoCancellato.Designer.cs">
+      <DependentUpon>201603151447165_FlagTrattamentoCancellato.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -103,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201603070933393_Trattamenti.resx">
       <DependentUpon>201603070933393_Trattamenti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603151447165_FlagTrattamentoCancellato.resx">
+      <DependentUpon>201603151447165_FlagTrattamentoCancellato.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
