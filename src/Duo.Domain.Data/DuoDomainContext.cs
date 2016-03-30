@@ -17,6 +17,10 @@ namespace Duo.Domain.Data
                 .ToTable("Trattamenti");
             modelBuilder.MapPropertiesOf<Trattamenti.Trattamento.StatoTrattamento>();
 
+            var prodottiState = modelBuilder.Entity<Prodotti.Prodotto.StatoProdotto>()
+                .ToTable("Prodotti");
+            modelBuilder.MapPropertiesOf<Prodotti.Prodotto.StatoProdotto>();
+
             //modelBuilder.Entity<Address>()
             //        .ToTable("dbo.PersonAddresses");
             //modelBuilder.MapPropertiesOf<Address>();

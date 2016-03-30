@@ -82,6 +82,10 @@
     <Compile Include="Migrations\201603151447165_FlagTrattamentoCancellato.Designer.cs">
       <DependentUpon>201603151447165_FlagTrattamentoCancellato.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201603291359095_Prodotti.cs" />
+    <Compile Include="Migrations\201603291359095_Prodotti.Designer.cs">
+      <DependentUpon>201603291359095_Prodotti.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -111,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201603151447165_FlagTrattamentoCancellato.resx">
       <DependentUpon>201603151447165_FlagTrattamentoCancellato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603291359095_Prodotti.resx">
+      <DependentUpon>201603291359095_Prodotti.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

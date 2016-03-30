@@ -17,6 +17,11 @@ namespace Duo.Clients.Wpf.Presentation
             this.broker.Broadcast(this, new Messaging.ApriGestioneAnagraficaTrattamentiMessage());
         }
 
+        public void ApriGestioneAnagraficaProdotti()
+        {
+            this.broker.Broadcast(this, new Messaging.ApriGestioneAnagraficaProdottiMessage());
+        }
+
 #pragma warning disable 0618
         public void Esci()
         {

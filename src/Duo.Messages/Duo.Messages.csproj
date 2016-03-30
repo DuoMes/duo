@@ -46,6 +46,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BobineMadri\Commands\CreaNuovaBobinaMadre.cs" />
+    <Compile Include="Prodotti\Commands\CambiaAnagraficaProdotto.cs" />
+    <Compile Include="Prodotti\Commands\CreaNuovoProdotto.cs" />
+    <Compile Include="Prodotti\Commands\EliminaProdotto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Trattamenti\Commands\CambiaAnagraficaTrattamento.cs" />
     <Compile Include="Trattamenti\Commands\CreaNuovoTrattamento.cs" />
