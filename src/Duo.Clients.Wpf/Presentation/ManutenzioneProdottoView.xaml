@@ -24,7 +24,9 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,10,0,10">
                 <Label Content="Spessore" Width="100" />
-                <TextBox Width="150" Text="{markup:EditorBinding Path=Spessore}" VerticalAlignment="Center" HorizontalAlignment="Right" />
+                <TextBox Width="150" Text="{markup:EditorBinding Path=Spessore}" 
+                         VerticalAlignment="Center" 
+                         TextAlignment="Right" />
             </StackPanel>
         </StackPanel>
 
