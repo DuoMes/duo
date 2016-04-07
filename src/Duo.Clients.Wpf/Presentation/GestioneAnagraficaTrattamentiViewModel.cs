@@ -63,7 +63,7 @@ namespace Duo.Clients.Wpf.Presentation
 
         public void AggiungiTrattamento()
         {
-            this.broker.Broadcast(this, new Messaging.ApriManutenzioneTrattamentoMessage(Guid.Empty, 0, string.Empty, string.Empty));
+            this.broker.Broadcast(this, new Messaging.ApriCreazioneTrattamentoMessage());
         }
 
         public void ModificaTrattamento()
