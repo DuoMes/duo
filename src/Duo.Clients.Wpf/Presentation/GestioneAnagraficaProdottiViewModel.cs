@@ -63,7 +63,7 @@ namespace Duo.Clients.Wpf.Presentation
 
         public void AggiungiProdotto()
         {
-            this.broker.Broadcast(this, new Messaging.ApriManutenzioneProdottoMessage(Guid.Empty, 0, string.Empty, string.Empty,0));
+            this.broker.Broadcast(this, new Messaging.ApriCreazioneProdottoMessage());
         }
 
         public void ModificaProdotto()
