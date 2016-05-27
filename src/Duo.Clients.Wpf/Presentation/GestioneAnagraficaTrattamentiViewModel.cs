@@ -68,12 +68,7 @@ namespace Duo.Clients.Wpf.Presentation
 
         public void ModificaTrattamento()
         {
-            this.broker.Broadcast(this, new Messaging.ApriManutenzioneTrattamentoMessage(
-                                                            TrattamentoSelezionato.Id,
-                                                            TrattamentoSelezionato.Version,
-                                                            TrattamentoSelezionato.Codice,
-                                                            TrattamentoSelezionato.Descrizione
-                                                            ));
+            this.broker.Broadcast(this, new Messaging.ApriManutenzioneTrattamentoMessage(TrattamentoSelezionato.Id));
         }
 
         public async void EliminaTrattamento()

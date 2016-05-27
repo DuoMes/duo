@@ -16,6 +16,7 @@ namespace Duo.Clients.Wpf.Presentation
     {
         readonly IMessageBroker broker;
         readonly Services.AppSettings settings;
+        readonly Services.TrattamentiViewsService trattamentiViewsService;
 
         public Guid Id;
         public int Version;
@@ -40,11 +41,31 @@ namespace Duo.Clients.Wpf.Presentation
             private set { this.SetPropertyValue(() => this.WindowTitle, value); }
         }
 
-        public ManutenzioneTrattamentoViewModel(Services.AppSettings settings, IMessageBroker broker)
+        public ManutenzioneTrattamentoViewModel(Services.AppSettings settings, IMessageBroker broker, Services.TrattamentiViewsService trattamentiViewsService)
         {
             this.settings = settings;
             this.broker = broker;
-            this.WindowTitle = (this.Id == Guid.Empty) ? "Inserimento Trattamento" : "Manutenzione Trattamento";
+            this.trattamentiViewsService = trattamentiViewsService;
+          
+        }
+
+        internal async void CaricaDatiTrattamento(Guid idTrattamento)
+        {
+            if (idTrattamento == Guid.Empty)
+            {
+                this.WindowTitle = "Inserimento Trattamento";
+            }
+            else
+            {
+                this.WindowTitle = "Manutenzione Trattamento";
+                var trattamento = await trattamentiViewsService.GetById(idTrattamento);
+                this.Id = idTrattamento;
+                this.Version = trattamento.Version;
+                this.Codice = trattamento.Codice;
+                this.Descrizione = trattamento.Descrizione;
+            }
+
+
         }
 
         protected override IValidationService GetValidationService()

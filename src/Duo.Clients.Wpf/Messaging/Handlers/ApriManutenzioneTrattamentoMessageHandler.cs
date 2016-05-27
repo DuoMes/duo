@@ -18,12 +18,9 @@ namespace Duo.Clients.Wpf.Messaging.Handlers
         }
         public override void Handle(object sender, ApriManutenzioneTrattamentoMessage message)
         {
-            var view = viewResolver.GetView<ManutenzioneTrattamentoView, ManutenzioneTrattamentoViewModel>(vm => 
+            var view = viewResolver.GetView<ManutenzioneTrattamentoView, ManutenzioneTrattamentoViewModel>(vm =>
                                                                                                                 {
-                                                                                                                    vm.Id = message.Id;
-                                                                                                                    vm.Version = message.Version;
-                                                                                                                    vm.Codice = message.Codice;
-                                                                                                                    vm.Descrizione = message.Descrizione;
+                                                                                                                    vm.CaricaDatiTrattamento(message.Id);
                                                                                                                 });
             view.Owner = this.conventions.GetViewOfViewModel(sender) as Window;
             view.ShowDialog();
