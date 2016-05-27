@@ -68,13 +68,7 @@ namespace Duo.Clients.Wpf.Presentation
 
         public void ModificaProdotto()
         {
-            this.broker.Broadcast(this, new Messaging.ApriManutenzioneProdottoMessage(
-                                                            ProdottoSelezionato.Id,
-                                                            ProdottoSelezionato.Version,
-                                                            ProdottoSelezionato.Codice,
-                                                            ProdottoSelezionato.Descrizione,
-                                                            ProdottoSelezionato.Spessore
-                                                            ));
+            this.broker.Broadcast(this, new Messaging.ApriManutenzioneProdottoMessage(ProdottoSelezionato.Id));
         }
 
         public async void EliminaProdotto()

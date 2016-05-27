@@ -1,4 +1,5 @@
-﻿using Duo.Messages.Prodotti.Commands;
+﻿using Duo.Clients.Wpf.Services;
+using Duo.Messages.Prodotti.Commands;
 using Radical.CQRS.Client;
 using System;
 using System.ComponentModel.DataAnnotations;
@@ -15,6 +16,7 @@ namespace Duo.Clients.Wpf.Presentation
     {
         readonly IMessageBroker broker;
         readonly Services.AppSettings settings;
+        readonly ProdottiViewsService prodottiViewsService;
 
         public Guid Id;
         public int Version;
@@ -46,17 +48,38 @@ namespace Duo.Clients.Wpf.Presentation
             private set { this.SetPropertyValue(() => this.WindowTitle, value); }
         }
 
-        public ManutenzioneProdottoViewModel(Services.AppSettings settings, IMessageBroker broker)
+        public ManutenzioneProdottoViewModel(Services.AppSettings settings, IMessageBroker broker, Services.ProdottiViewsService prodottiViewsService)
         {
             this.settings = settings;
             this.broker = broker;
-            this.WindowTitle = (this.Id == Guid.Empty) ? "Inserimento Prodotto" : "Manutenzione Prodotto";
+            this.prodottiViewsService = prodottiViewsService;
+
+            
+        }
+
+        internal async void CaricaDatiProdotto(Guid idProdotto)
+        {
+            if (idProdotto == Guid.Empty)
+            {
+                this.WindowTitle = "Inserimento Prodotto";
+            }
+            else
+            {
+                this.WindowTitle = "Manutenzione Prodotto";
+                var prodotto = await prodottiViewsService.GetById(idProdotto);
+                this.Id = idProdotto;
+                this.Version = prodotto.Version;
+                this.Codice = prodotto.Codice;
+                this.Descrizione = prodotto.Descrizione;
+                this.Spessore = prodotto.Spessore;
+            }
         }
 
         protected override IValidationService GetValidationService()
         {
             return new DataAnnotationValidationService<ManutenzioneProdottoViewModel>(this);
         }
+
 
 #pragma warning disable 0618
 

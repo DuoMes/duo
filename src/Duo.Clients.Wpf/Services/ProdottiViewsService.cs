@@ -22,7 +22,7 @@ namespace Duo.Clients.Wpf.Services
         {
             using (var apiClient = new HttpClient())
             {
-                var url = $"{this.settings.ApiBaseAddress}trattamenti/{id}";
+                var url = $"{this.settings.ApiBaseAddress}prodotti/{id}";
 
                 return await this.GetAsync<ProdottoView>(apiClient, url);
             }

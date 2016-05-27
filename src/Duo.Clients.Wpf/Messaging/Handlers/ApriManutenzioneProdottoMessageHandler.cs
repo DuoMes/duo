@@ -21,11 +21,7 @@ namespace Duo.Clients.Wpf.Messaging.Handlers
         {
             var view = viewResolver.GetView<ManutenzioneProdottoView, ManutenzioneProdottoViewModel>(vm =>
                                                                                                         {
-                                                                                                            vm.Id = message.Id;
-                                                                                                            vm.Version = message.Version;
-                                                                                                            vm.Codice = message.Codice;
-                                                                                                            vm.Descrizione = message.Descrizione;
-                                                                                                            vm.Spessore = message.Spessore;
+                                                                                                            vm.CaricaDatiProdotto(message.Id);                                                                                                         
                                                                                                         });
             view.Owner = this.conventions.GetViewOfViewModel(sender) as Window;
             view.ShowDialog();
