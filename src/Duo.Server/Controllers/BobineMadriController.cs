@@ -1,10 +1,10 @@
-﻿using Duo.Domain.ViewModels.BobineMadri;
+﻿using Duo.Domain.ViewModels;
+using Duo.Domain.ViewModels.BobineMadri;
 using Duo.Server.Data;
-using Duo.Domain.ViewModels;
 using System;
 using System.Linq;
-using System.Web.Http;
 using System.Linq.Expressions;
+using System.Web.Http;
 
 namespace Duo.Server.Controllers
 {

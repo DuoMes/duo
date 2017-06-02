@@ -1,5 +1,4 @@
-﻿using System;
-using Radical.CQRS;
+﻿using Radical.CQRS;
 
 namespace Duo.Domain.Trattamenti
 {

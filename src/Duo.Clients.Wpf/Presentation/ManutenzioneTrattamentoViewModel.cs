@@ -1,5 +1,4 @@
-﻿using Duo.Domain.ViewModels.Trattamenti;
-using Duo.Messages.Trattamenti.Commands;
+﻿using Duo.Messages.Trattamenti.Commands;
 using Radical.CQRS.Client;
 using System;
 using System.ComponentModel.DataAnnotations;

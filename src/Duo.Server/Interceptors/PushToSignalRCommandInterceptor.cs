@@ -5,7 +5,7 @@ using System;
 
 namespace Duo.Server.Push.Interceptors
 {
-	class PushToSignalRCommandInterceptor : Jason.Handlers.ICommandInterceptor
+    class PushToSignalRCommandInterceptor : Jason.Handlers.ICommandInterceptor
 	{
 		readonly IOperationContextManager operationContextManager;
 

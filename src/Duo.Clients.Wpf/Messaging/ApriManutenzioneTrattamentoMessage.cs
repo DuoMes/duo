@@ -1,5 +1,4 @@
-﻿using Duo.Domain.ViewModels.Trattamenti;
-using System;
+﻿using System;
 
 namespace Duo.Clients.Wpf.Messaging
 {

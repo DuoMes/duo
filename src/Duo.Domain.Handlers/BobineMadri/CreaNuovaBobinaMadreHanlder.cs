@@ -1,5 +1,5 @@
-﻿using Jason.Handlers.Commands;
-using Duo.Messages.BobineMadri.Commands;
+﻿using Duo.Messages.BobineMadri.Commands;
+using Jason.Handlers.Commands;
 using Radical.CQRS;
 
 namespace Duo.Domain.Handlers.BobineMadri

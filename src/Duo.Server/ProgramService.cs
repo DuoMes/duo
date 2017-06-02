@@ -1,12 +1,11 @@
-﻿using Radical.Bootstrapper;
+﻿using Microsoft.Owin.Cors;
+using Newtonsoft.Json;
+using Owin;
+using Radical.Bootstrapper;
 using Radical.CQRS.Server;
 using System;
 using System.Configuration;
-using Owin;
-using Microsoft.Owin.Cors;
 using System.ServiceProcess;
-using Topics.Radical;
-using Newtonsoft.Json;
 
 namespace Duo.Server
 {

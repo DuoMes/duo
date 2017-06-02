@@ -1,11 +1,11 @@
-﻿using System.ComponentModel.Composition;
-using Castle.MicroKernel.Registration;
+﻿using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
+using System.ComponentModel.Composition;
 
 namespace Duo.Domain.Data.Boot.Installers
 {
-	[Export( typeof( IWindsorInstaller ) )]
+    [Export( typeof( IWindsorInstaller ) )]
 	public class DefaultInstaller : IWindsorInstaller
 	{
 		public void Install( IWindsorContainer container, IConfigurationStore store )
