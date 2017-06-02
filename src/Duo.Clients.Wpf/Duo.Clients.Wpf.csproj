@@ -45,20 +45,20 @@
       <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.AspNet.SignalR.Client, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.SignalR.Client.2.2.0\lib\net45\Microsoft.AspNet.SignalR.Client.dll</HintPath>
+    <Reference Include="Microsoft.AspNet.SignalR.Client, Version=2.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Client.2.2.2\lib\net45\Microsoft.AspNet.SignalR.Client.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Polly, Version=4.1.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Polly.4.1.2\lib\net45\Polly.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Radical, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Radical.1.5.3\lib\net45\Radical.dll</HintPath>
+    <Reference Include="Radical, Version=1.6.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Radical.1.6.1\lib\net45\Radical.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Radical.CQRS, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -69,16 +69,16 @@
       <HintPath>..\packages\Radical.CQRS.Client.0.2.0-unstable0011\lib\net45\Radical.CQRS.Client.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Radical.Windows, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Radical.Windows.1.4.0\lib\net45\Radical.Windows.dll</HintPath>
+    <Reference Include="Radical.Windows, Version=1.6.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Radical.Windows.1.6.1\lib\net45\Radical.Windows.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Radical.Windows.Presentation, Version=1.10.3.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Radical.Windows.Presentation.1.10.3.1\lib\net45\Radical.Windows.Presentation.dll</HintPath>
+    <Reference Include="Radical.Windows.Presentation, Version=1.11.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Radical.Windows.Presentation.1.11.0\lib\net45\Radical.Windows.Presentation.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Radical.Windows.Presentation.CastleWindsor, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Radical.Windows.Presentation.CastleWindsor.1.4.1\lib\net45\Radical.Windows.Presentation.CastleWindsor.dll</HintPath>
+    <Reference Include="Radical.Windows.Presentation.CastleWindsor, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Radical.Windows.Presentation.CastleWindsor.1.6.0\lib\net45\Radical.Windows.Presentation.CastleWindsor.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -97,7 +97,7 @@
     </Reference>
     <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Radical.Windows.1.4.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <HintPath>..\packages\Radical.Windows.1.6.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml" />
