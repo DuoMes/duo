@@ -139,7 +139,11 @@
     <Compile Include="Presentation\MainViewModel.cs" />
     <Compile Include="Services\AbstractViewsService.cs" />
     <Compile Include="Services\AppSettings.cs" />
+    <Compile Include="Services\ExtrusionLinesViewService.cs" />
+    <Compile Include="Services\ExtrusionProgramsViewService.cs" />
+    <Compile Include="Services\ProductsViewsService.cs" />
     <Compile Include="Services\ServerNotificationsConnector.cs" />
+    <Compile Include="Services\TreatmentsViewService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Presentation\MainView.xaml.cs">
