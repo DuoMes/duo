@@ -187,6 +187,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ExtrusionLinesController.cs" />
+    <Compile Include="Controllers\ExtrusionProgramsController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\TreatmentsController.cs" />
+    <Compile Include="Data\ExtrusionLinesViewDataContext.cs" />
+    <Compile Include="Data\ExtrusionProgramsViewDataContext.cs" />
+    <Compile Include="Data\ProductsViewDataContext.cs" />
+    <Compile Include="Data\TreatmentsViewDataContext.cs" />
     <Compile Include="Interceptors\PushToSignalRCommandInterceptor.cs" />
     <Compile Include="PagingHelper.cs" />
     <Compile Include="ProgramService.cs">
@@ -225,10 +233,7 @@
       <Name>Duo.Notifications</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

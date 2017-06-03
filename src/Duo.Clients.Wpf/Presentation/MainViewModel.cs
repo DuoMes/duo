@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Windows.Controls;
-using Topics.Radical.ComponentModel.Messaging;
+﻿using Topics.Radical.ComponentModel.Messaging;
 using Topics.Radical.Windows.Presentation;
 
 namespace Duo.Clients.Wpf.Presentation

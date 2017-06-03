@@ -95,6 +95,51 @@ INSERT [dbo].[Treatments] ([Id], [Version], [Code], [Description]) VALUES (N'07c
 GO
 INSERT [dbo].[Treatments] ([Id], [Version], [Code], [Description]) VALUES (N'56bd42b7-876f-4ad6-bcc4-fb1fe84e476b', 1, N'CI', N'Corona Inside')
 GO
+/****** Object:  View [dbo].[ExtrusionLinesView]    Script Date: 03/06/2017 17:11:07 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[ExtrusionLinesView]
+AS
+SELECT        Id, Version, Code, Description, StandardWidth
+FROM            dbo.ExtrusionLines
+
+GO
+/****** Object:  View [dbo].[ExtrusionProgramsView]    Script Date: 03/06/2017 17:11:07 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[ExtrusionProgramsView]
+AS
+SELECT        Id, Version, Code, ExtrusionLineId, ProductId, Thickness, Lenght, Widht, TreatmentId, QuantityToBeProduced, JumboRollToBeProduced, ExpectedProductionDate
+FROM            dbo.ExtrusionPrograms
+
+GO
+/****** Object:  View [dbo].[ProductsView]    Script Date: 03/06/2017 17:11:07 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[ProductsView]
+AS
+SELECT        Id, Version, Code, Description, Thickness
+FROM            dbo.Products
+
+GO
+/****** Object:  View [dbo].[TreatmentsView]    Script Date: 03/06/2017 17:11:07 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[TreatmentsView]
+AS
+SELECT        Id, Version, Code, Description
+FROM            dbo.Treatments
+
+GO
+
 USE [master]
 GO
 ALTER DATABASE [Duo] SET  READ_WRITE 

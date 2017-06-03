@@ -1,7 +1,6 @@
-﻿using System;
-using System.Windows;
-using Duo.Clients.Wpf.Messaging.ExtrusionPrograms;
+﻿using Duo.Clients.Wpf.Messaging.ExtrusionPrograms;
 using Duo.Clients.Wpf.Presentation.ExtrusionPrograms;
+using System.Windows;
 using Topics.Radical.ComponentModel.Messaging;
 using Topics.Radical.Messaging;
 using Topics.Radical.Windows.Presentation.ComponentModel;
