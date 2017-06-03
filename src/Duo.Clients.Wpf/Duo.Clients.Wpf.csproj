@@ -123,51 +123,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Behaviors\DataGridExtensions.cs" />
-    <Compile Include="Messaging\ApriCreazioneProdottoMessage.cs" />
-    <Compile Include="Messaging\ApriGestioneAnagraficaProdottiMessage.cs" />
-    <Compile Include="Messaging\ApriManutenzioneProdottoMessage.cs" />
-    <Compile Include="Messaging\ApriManutenzioneTrattamentoMessage.cs" />
-    <Compile Include="Messaging\ApriGestioneAnagraficaTrattamentiMessage.cs" />
     <Compile Include="Messaging\CommandExecuted.cs" />
     <Compile Include="Messaging\CommandFailed.cs" />
-    <Compile Include="Messaging\ApriGestioneAnagraficheMessage.cs" />
-    <Compile Include="Messaging\ApriCreazioneTrattamentoMessage.cs" />
-    <Compile Include="Messaging\Handlers\ApriCreazioneProdottoMessageHandler.cs" />
-    <Compile Include="Messaging\Handlers\ApriCreazioneTrattamentoMessageHandler.cs" />
-    <Compile Include="Messaging\Handlers\ApriGestioneAnagraficaProdottiMessageHandler.cs" />
-    <Compile Include="Messaging\Handlers\ApriGestioneAnagraficaTrattamentiMessageHandler.cs" />
-    <Compile Include="Messaging\Handlers\ApriGestioneAnagraficheMessageHandler.cs" />
-    <Compile Include="Messaging\Handlers\ApriManutenzioneProdottoMessageHandler.cs" />
-    <Compile Include="Messaging\Handlers\ApriManutenzioneTrattamentoMessageHandler.cs" />
     <Compile Include="Messaging\Handlers\VisualizzaMessageBoxMessageHandler.cs" />
     <Compile Include="Messaging\VisualizzaMessageBoxMessage.cs" />
-    <Compile Include="Presentation\GestioneAnagraficaProdottiView.xaml.cs">
-      <DependentUpon>GestioneAnagraficaProdottiView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Presentation\GestioneAnagraficaProdottiViewModel.cs" />
-    <Compile Include="Presentation\GestioneAnagraficheView.xaml.cs">
-      <DependentUpon>GestioneAnagraficheView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Presentation\GestioneAnagraficheViewModel.cs" />
     <Compile Include="Presentation\MainViewModel.cs" />
-    <Compile Include="Presentation\GestioneAnagraficaTrattamentiView.xaml.cs">
-      <DependentUpon>GestioneAnagraficaTrattamentiView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Presentation\GestioneAnagraficaTrattamentiViewModel.cs" />
-    <Compile Include="Presentation\ManutenzioneProdottoView.xaml.cs">
-      <DependentUpon>ManutenzioneProdottoView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Presentation\ManutenzioneProdottoViewModel.cs" />
-    <Compile Include="Presentation\ManutenzioneTrattamentoView.xaml.cs">
-      <DependentUpon>ManutenzioneTrattamentoView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Presentation\ManutenzioneTrattamentoViewModel.cs" />
     <Compile Include="Services\AbstractViewsService.cs" />
     <Compile Include="Services\AppSettings.cs" />
-    <Compile Include="Services\BobineMadriViewsService.cs" />
-    <Compile Include="Services\ProdottiViewsService.cs" />
     <Compile Include="Services\ServerNotificationsConnector.cs" />
-    <Compile Include="Services\TrattamentiViewsService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Presentation\MainView.xaml.cs">
@@ -201,27 +164,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Presentation\GestioneAnagraficaProdottiView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Presentation\GestioneAnagraficheView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Presentation\MainView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Presentation\GestioneAnagraficaTrattamentiView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Presentation\ManutenzioneProdottoView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Presentation\ManutenzioneTrattamentoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
