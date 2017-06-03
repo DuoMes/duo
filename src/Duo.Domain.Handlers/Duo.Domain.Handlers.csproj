@@ -82,14 +82,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BobineMadri\CreaNuovaBobinaMadreHanlder.cs" />
-    <Compile Include="Prodotti\CambiaAnagraficaProdottoHandler.cs" />
-    <Compile Include="Prodotti\CreaNuovoProdottoHandler.cs" />
-    <Compile Include="Prodotti\EliminaProdottoHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Trattamenti\CambiaAnagraficaTrattamentoHandler.cs" />
-    <Compile Include="Trattamenti\CreaNuovoTrattamentoHandler.cs" />
-    <Compile Include="Trattamenti\EliminaTrattamentoHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

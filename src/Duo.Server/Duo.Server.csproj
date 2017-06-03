@@ -187,12 +187,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\BobineMadriController.cs" />
-    <Compile Include="Controllers\ProdottiController.cs" />
-    <Compile Include="Controllers\TrattamentiController.cs" />
-    <Compile Include="Data\BobineMadriViewDataContext.cs" />
-    <Compile Include="Data\ProdottiViewDataContext.cs" />
-    <Compile Include="Data\TrattamentiViewDataContext.cs" />
     <Compile Include="Interceptors\PushToSignalRCommandInterceptor.cs" />
     <Compile Include="PagingHelper.cs" />
     <Compile Include="ProgramService.cs">
@@ -230,6 +224,10 @@
       <Project>{dccae445-55bd-4123-a526-7bc9c9643830}</Project>
       <Name>Duo.Notifications</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+    <Folder Include="Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
