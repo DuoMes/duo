@@ -8,10 +8,14 @@
         xmlns:rg="http://schemas.topics.it/wpf/radical/windows/presentation/regions"
         xmlns:local="clr-namespace:Duo.Clients.Wpf.Presentation"
         mc:Ignorable="d"
-        Title="MainView" Height="300" Width="300">
+        Title="Dµo" Height="300" Width="300" 
+        Icon="/Duo.Clients.Wpf;component/Resources/Duo.png" 
+        WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button Content="Anagrafiche" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="81" Height="25"
-                Command="{markup:AutoCommandBinding Path=ApriGestioneAnagrafiche}"/>
+
+        <Button Content="Extrusion Programs" HorizontalAlignment="Left" 
+                Margin="10,10,0,0" VerticalAlignment="Top" Width="134" Height="25"
+                Command="{markup:AutoCommandBinding Path=OpenExtrusionProgramsManagement}"/>
 
     </Grid>
 </Window>

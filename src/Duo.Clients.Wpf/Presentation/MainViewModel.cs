@@ -1,18 +1,24 @@
-﻿using Topics.Radical.ComponentModel.Messaging;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Windows.Controls;
+using Topics.Radical.ComponentModel.Messaging;
 using Topics.Radical.Windows.Presentation;
 
 namespace Duo.Clients.Wpf.Presentation
 {
     class MainViewModel : AbstractViewModel
     {
-        Services.AppSettings settings;
-
         readonly IMessageBroker broker;
 
         public MainViewModel(Services.AppSettings settings, IMessageBroker broker)
         {
-            this.settings = settings;
             this.broker = broker;
+
+        }
+
+        public void OpenExtrusionProgramsManagement()
+        {
+            this.broker.Broadcast(this, new Messaging.ExtrusionPrograms.OpenExtrusionProgramsManagementMessage());
         }
 
     }
