@@ -8,6 +8,10 @@ namespace Duo.Domain.Data
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            var bobineMadriState = modelBuilder.Entity<ExtrusionPrograms.ExtrusionProgram.ExtrusionProgramState>()
+                .ToTable("ExtrusionPrograms");
+            modelBuilder.MapPropertiesOf<ExtrusionPrograms.ExtrusionProgram.ExtrusionProgramState>();
         }
     }
 }
