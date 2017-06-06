@@ -128,14 +128,22 @@
     <Compile Include="Behaviors\DataGridExtensions.cs" />
     <Compile Include="Messaging\CommandExecuted.cs" />
     <Compile Include="Messaging\CommandFailed.cs" />
+    <Compile Include="Messaging\ExtrusionPrograms\CreateExtrusionProgramMessage.cs" />
     <Compile Include="Messaging\ExtrusionPrograms\OpenExtrusionProgramsManagementMessage.cs" />
+    <Compile Include="Messaging\ExtrusionPrograms\UpdateExtrusionProgramMessage.cs" />
+    <Compile Include="Messaging\Handlers\ExtrusionPrograms\CreateExtrusionProgramMessageHandler.cs" />
     <Compile Include="Messaging\Handlers\ExtrusionPrograms\OpenExtrusionProgramsManagementMessageHandler.cs" />
+    <Compile Include="Messaging\Handlers\ExtrusionPrograms\UpdateExtrusionProgramMessageHandler.cs" />
     <Compile Include="Messaging\Handlers\VisualizzaMessageBoxMessageHandler.cs" />
     <Compile Include="Messaging\VisualizzaMessageBoxMessage.cs" />
     <Compile Include="Presentation\ExtrusionPrograms\ExtrusionProgramsManagementView.xaml.cs">
       <DependentUpon>ExtrusionProgramsManagementView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Presentation\ExtrusionPrograms\ExtrusionProgramsManagementViewModel.cs" />
+    <Compile Include="Presentation\ExtrusionPrograms\ExtrusionProgramView.xaml.cs">
+      <DependentUpon>ExtrusionProgramView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ExtrusionPrograms\ExtrusionProgramViewModel.cs" />
     <Compile Include="Presentation\MainViewModel.cs" />
     <Compile Include="Services\AbstractViewsService.cs" />
     <Compile Include="Services\AppSettings.cs" />
@@ -178,6 +186,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Presentation\ExtrusionPrograms\ExtrusionProgramsManagementView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\ExtrusionPrograms\ExtrusionProgramView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

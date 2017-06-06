@@ -1,16 +1,17 @@
-﻿<Window x:Class="Duo.Clients.Wpf.Presentation.ExtrusionPrograms.ExtrusionProgramsManagementView"
+﻿<Window x:Class="Duo.Clients.Wpf.Presentation.ExtrusionPrograms.ExtrusionProgramView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:markup="http://schemas.topics.it/wpf/radical/windows/markup"
         xmlns:behaviors="http://schemas.topics.it/wpf/radical/windows/behaviors"
-        xmlns:rg="http://schemas.topics.it/wpf/radical/windows/presentation/regions"
+        xmlns:rg="http://schemas.topics.it/wpf/radical/windows/presentation/regions"        
+        xmlns:local="clr-namespace:Duo.Clients.Wpf.Presentation.ExtrusionPrograms"
         mc:Ignorable="d"
-        Title="Extrusion Program Management" 
-        Height="300" Width="576.279" 
+        Title="{Binding Path=Title}" Height="440.443" Width="378.947"
         ShowInTaskbar="False" WindowStartupLocation="CenterOwner">
     <Grid>
+        
         
     </Grid>
 </Window>
