@@ -13,9 +13,18 @@
         WindowStartupLocation="CenterScreen">
     <Grid>
 
-        <Button Content="Extrusion Programs" HorizontalAlignment="Left" 
-                Margin="10,10,0,0" VerticalAlignment="Top" Width="134" Height="25"
-                Command="{markup:AutoCommandBinding Path=OpenExtrusionProgramsManagement}"/>
+        <StackPanel Orientation="Vertical">
+            <Button Content="Extrusion Programs Manager" HorizontalAlignment="Left" 
+                    Margin="10,10,0,0" VerticalAlignment="Top" Width="170" Height="25"
+                    Command="{markup:AutoCommandBinding Path=OpenExtrusionProgramsManagement}"/>
+            <Button Content="Insert Extrusion Program" HorizontalAlignment="Left" 
+                    Margin="10,10,0,0" VerticalAlignment="Top" Width="170" Height="25"
+                    Command="{markup:AutoCommandBinding Path=CreateExtrusionProgram}"/>
+            <Button Content="Update Extrusion Program" HorizontalAlignment="Left" 
+                    Margin="10,10,0,0" VerticalAlignment="Top" Width="170" Height="25"
+                    Command="{markup:AutoCommandBinding Path=UpdateExtrusionProgram}"/>
+
+        </StackPanel>
 
     </Grid>
 </Window>
